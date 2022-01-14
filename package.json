@@ -1,0 +1,14 @@
+{
+  "name": "lameach_digital_garden",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Botvinnikov",
+  "license": "MIT",
+  "dependencies": {
+    "@vue/cli": "^4.5.15"
+  }
+}
