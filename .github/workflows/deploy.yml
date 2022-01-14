@@ -16,7 +16,7 @@ jobs:
       - run: echo "$" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build
-      - run: cd lameach_digital_garden
+      - run: cd lameach_digital_garden/lameach_digital_garden
       - run: npm ci
       - run: vue-cli-service build
       # Deploy
