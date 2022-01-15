@@ -8,10 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SSH_KEY: ${{ secrets.key }}
     steps:
       - uses: actions/checkout@v2
-      - env:
-          SSH_KEY: ${{ secrets.key }}
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
