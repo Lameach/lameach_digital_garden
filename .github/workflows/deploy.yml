@@ -10,17 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup key
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "$" > "$HOME/.ssh/key"
-      - run: chmod 600 "$HOME/.ssh/key"
-      # Build
-      - run: cd lameach_digital_garden
-      - run: npm i
-      - name: Build the project
-        with:
-          working-directory: lameach_digital_garden
-        run: npm run build
-      # Deploy
-      - run: cd dist && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@194.156.224.126:/home/lameach_digital_garden
+      - name: Setup key
+        run: | 
+          set -eu mkdir "$HOME/.ssh"
+          echo "$" > "$HOME/.ssh/key"
+          chmod 600 "$HOME/.ssh/key"
+      - name: Install dependencies and build project
+        working-directory: ./lameach_digital_garden
+        run: |
+          npm i
+          npm run build
+      - name: Deploy
+        working-directory: ./lameach_digital_garden/dist
+        run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@194.156.224.126:/home/lameach_digital_garden
