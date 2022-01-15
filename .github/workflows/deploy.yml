@@ -15,6 +15,7 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
+      - run: echo "$HOME/.ssh/key"
       # Build
       - run: | 
           cd lameach_digital_garden
