@@ -8,14 +8,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      SSH_KEY: ${{ secrets.key }}
     steps:
       - uses: actions/checkout@v2
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
-      - run: echo "$SSH_KEY" > "$HOME/.ssh/key"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build
       - run: | 
