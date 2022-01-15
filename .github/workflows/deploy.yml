@@ -16,9 +16,9 @@ jobs:
       - run: echo "$" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build
-      - run: cd lameach_digital_garden
-      - run: npm ci
-      - run: cd lameach_digital_garden
-      - run: npm run build
+      - run: | 
+          cd lameach_digital_garden
+          npm ci
+          npm run build
       # Deploy
       - run: cd dist && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@194.156.224.126:/home/lameach_digital_garden
