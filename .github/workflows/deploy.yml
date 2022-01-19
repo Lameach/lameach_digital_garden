@@ -22,4 +22,4 @@ jobs:
           npm ci
           npm run build
       # Deploy
-      - run: cd lameach_digital_garden/dist && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@194.156.224.126:/home/lameach_digital_garden
+      - run: cd lameach_digital_garden/dist && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . user@194.156.224.126:/home/var/www/lameach/html/
