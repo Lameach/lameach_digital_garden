@@ -7,7 +7,7 @@
     </div>
     <div class="social">
       <a class="sm-link" href="https://vk.com/d.botvinnikov" target="blank"><img src="../assets/vk_logo.svg"/></a>
-      <a class="sm-link" href="https://github.com/Lameach" target="blank" rel="me"><img src="../assets/gh_logo.svg"/></a>
+      <a class="sm-link" href="https://github.com/Lameach" target="blank"><img src="../assets/gh_logo.svg"/></a>
     </div>
   </div>
 </template>
